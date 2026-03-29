@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: "Exo", sans-serif;
+}
+/*-----HEADER-----*/
+.header {
+  text-align: center;
+  padding: 0;
+  background-color: #080808;
+  height: 700px;
+}
+.navbar {
+  height: 50px;
+  margin: 0 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  background-color: #1b1b1b;
+  border-radius: 0 0 10px 10px;
+}
+.navbar__list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+a {
+  text-decoration: none;
+  color: #9c9c9c;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 1.5rem;
+}
+.lenguage_icon a {
+  margin-left: 80px;
+}
+
+/*--------MAIN--------*/
+.main_img {
+  width: 100%;
+  height: 200px;
+  background-color: #1b1b1b;
+}
+.profile-img {
+  width: 400px;
+  height: 100%;
+  margin: 20px 0 20px 0;
+  border-radius: 100%;
+  background-color: green;
+}
+.personal-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  font-size: 3.4rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+  color: #ffffff;
+}
+.description {
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: #9c9c9c;
+  max-width: 500px;
+}
