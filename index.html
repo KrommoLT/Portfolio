@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="./js/index.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -84,12 +85,97 @@
       </div>
       <button class="toProjects">PROJECTS</button>
     </header>
-    <main class="main">
-      <section class="myWork_section">
+    <main class="main1">
+      <section class="myWork_section" id="projects">
         <h2 class="myWork_title">My Work</h2>
-        <div class="myWork_content">
-          <!-- Project items will be added here -->
+
+        <div class="projects-wrapper" aria-label="Projects carousel">
+          <div class="projects-track">
+            <a
+              class="project-card"
+              href="https://krommolt.github.io/BatataBitPage/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./assets/BatataBit.png"
+                alt="BatataBit project preview"
+              />
+              <div class="project-card__info">
+                <h3>BatataBit</h3>
+                <p>
+                  Responsive landing page inspired by a modern crypto and
+                  finance product.
+                </p>
+                <div class="project-card__tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>Responsive</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://krommolt.github.io/Rick-Morty-Characters/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./assets/RickAndMortyApi.png"
+                alt="Rick and Morty API project preview"
+              />
+              <div class="project-card__info">
+                <h3>Rick and Morty API</h3>
+                <p>
+                  Character finder connected to the API with filters and dynamic
+                  rendering.
+                </p>
+                <div class="project-card__tech">
+                  <span>React</span>
+                  <span>API</span>
+                  <span>CSS</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://krommolt.github.io/TodoListReact/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./assets/ToDoList.png"
+                alt="To-Do List project preview"
+              />
+              <div class="project-card__info">
+                <h3>To-Do List</h3>
+                <p>
+                  Task manager with a clean UI to create, complete and organize
+                  daily todos.
+                </p>
+                <div class="project-card__tech">
+                  <span>React</span>
+                  <span>JavaScript</span>
+                  <span>CSS</span>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
+      </section>
+    </main>
+    <main class="main2">
+      <section class="aboutMe">
+        <h2 class="aboutMe_title">About Me</h2>
+        <p class="aboutMe_description">
+          I’m a frontend developer with a passion for creating engaging web
+          experiences. With a background in design, I bring a unique perspective
+          to my development work, focusing on both aesthetics and functionality.
+          I’m always eager to learn new technologies and take on challenging
+          projects that allow me to grow as a developer.
+        </p>
       </section>
     </main>
   </body>
