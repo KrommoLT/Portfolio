@@ -311,3 +311,57 @@ a {
   max-width: 500px;
   padding: 0 2rem;
 }
+/*--------CONTACT INFO & FOOTER--------*/
+.contactInfo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+  text-align: center;
+  background-color: #111111;
+}
+.contactInfo_title {
+  font-size: 3.5rem;
+  color: #ffffff;
+  margin-bottom: 2.4rem;
+  font-weight: bold;
+}
+.contactInfo_description {
+  font-size: 2rem;
+  color: #9c9c9c;
+  margin-bottom: 2rem;
+}
+
+.email {
+  font-size: 2rem;
+  z-index: 100;
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+.shadow {
+  position: relative;
+  top: -14px;
+  z-index: 99;
+  background-color: #1a1a1a;
+  width: 380px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+/*--------FOOTER--------*/
+.footer {
+  background-color: #080808;
+  padding: 2rem 0;
+  text-align: center;
+}
+.footer p {
+  color: #9c9c9c;
+  font-size: 1.4rem;
+}
+.github-logo {
+  width: 150px;
+  height: 50px;
+  margin: 10px;
+  background-color: transparent;
+}
