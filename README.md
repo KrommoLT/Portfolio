@@ -1,0 +1,5 @@
+Este proyecto es un portfolio personal desarrollado para mostrar mis habilidades como desarrollador frontend, así como mis proyectos, experiencia y tecnologías que utilizo en mi día a día. El objetivo principal es ofrecer una presentación clara, moderna y atractiva de mi trabajo, facilitando a reclutadores y colaboradores una visión rápida de mis capacidades.
+
+El portfolio incluye secciones como “About Me”, donde presento mi perfil profesional, “Projects”, donde expongo algunos de mis trabajos más relevantes, y un apartado de habilidades técnicas donde destaco las tecnologías que manejo. Está diseñado con un enfoque en la experiencia de usuario, priorizando la navegación intuitiva, el diseño responsive y el rendimiento.
+
+Además, el proyecto refleja mi enfoque como desarrollador: escribir código limpio, mantener buenas prácticas y construir interfaces funcionales y visualmente atractivas. Este tipo de portfolios son clave para destacar en el sector, ya que permiten centralizar proyectos y habilidades en un solo lugar accesible y actualizado
