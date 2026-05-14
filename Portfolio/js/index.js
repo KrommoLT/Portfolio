@@ -1,74 +1,61 @@
-/*-----technologies section----- */
-const techWrapper = document.querySelector(".technologies");
-const techTrack = document.querySelector(".tech-track");
+function setupCarousel({ wrapper, track, speed = 0.3, pauseEvent = "click", cloneCount = 1, minTrackWidthMultiplier = 2 }) {
+  if (!wrapper || !track) return;
 
-if (techWrapper && techTrack) {
-  const originalLogos = Array.from(techTrack.children);
-  originalLogos.forEach((item) => {
-    const clone = item.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    techTrack.appendChild(clone);
-  });
+  const items = Array.from(track.children);
+  const originalTrackWidth = track.scrollWidth;
+
+  let repeat = cloneCount;
+  if (minTrackWidthMultiplier > 1 && originalTrackWidth > 0) {
+    repeat = Math.max(cloneCount, Math.ceil((wrapper.clientWidth * minTrackWidthMultiplier) / originalTrackWidth));
+  }
+
+  for (let i = 0; i < repeat; i++) {
+    items.forEach((item) => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+  }
 
   let paused = false;
-  const speed = 0.3;
-
-  techWrapper.addEventListener("click", () => {
+  wrapper.addEventListener(pauseEvent, (event) => {
+    if (event.type === "click" && event.target.closest(".project-card")) {
+      return;
+    }
     paused = !paused;
   });
 
-  function autoScroll() {
+  function scrollFrame() {
     if (!paused) {
-      techWrapper.scrollLeft += speed;
-      const loopPoint = techTrack.scrollWidth / 2;
-      if (techWrapper.scrollLeft >= loopPoint) {
-        techWrapper.scrollLeft -= loopPoint;
+      wrapper.scrollLeft += speed;
+      if (wrapper.scrollLeft >= originalTrackWidth) {
+        wrapper.scrollLeft -= originalTrackWidth;
       }
     }
-
-    requestAnimationFrame(autoScroll);
+    requestAnimationFrame(scrollFrame);
   }
 
-  autoScroll();
+  scrollFrame();
 }
 
-/* -----my work section----- */
+const techWrapper = document.querySelector(".technologies");
+const techTrack = document.querySelector(".tech-track");
+setupCarousel({
+  wrapper: techWrapper,
+  track: techTrack,
+  speed: 0.3,
+  pauseEvent: "click",
+  cloneCount: 2,
+  minTrackWidthMultiplier: 2,
+});
+
 const projectsWrapper = document.querySelector(".projects-wrapper");
 const projectsTrack = document.querySelector(".projects-track");
-
-if (projectsWrapper && projectsTrack) {
-  const originalCards = Array.from(projectsTrack.children);
-
-  originalCards.forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    projectsTrack.appendChild(clone);
-  });
-
-  let isPaused = false;
-  const scrollSpeed = 0.008;
-
-  projectsWrapper.addEventListener("click", (event) => {
-    if (event.target.closest(".project-card")) {
-      return;
-    }
-
-    isPaused = !isPaused;
-  });
-
-  function autoScroll() {
-    if (!isPaused) {
-      projectsWrapper.scrollLeft += scrollSpeed;
-
-      const loopPoint = projectsTrack.scrollWidth / 2;
-
-      if (projectsWrapper.scrollLeft >= loopPoint) {
-        projectsWrapper.scrollLeft -= loopPoint;
-      }
-    }
-
-    requestAnimationFrame(autoScroll);
-  }
-
-  autoScroll();
-}
+setupCarousel({
+  wrapper: projectsWrapper,
+  track: projectsTrack,
+  speed: 0.3,
+  pauseEvent: "click",
+  cloneCount: 1,
+  minTrackWidthMultiplier: 1,
+});
