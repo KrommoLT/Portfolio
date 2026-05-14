@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./js/index.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <ul class="navbar__list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="lenguage_icon"><a href="#esp">🏁</a></li>
+        </ul>
+      </nav>
+      <div class="main_img">
+        <img
+          class="profile-img"
+          src="./assets/profileImg.jpeg"
+          alt="Lucas Toledo"
+        />
+      </div>
+
+      <div class="personal-info">
+        <h1 class="name">Lucas Toledo</h1>
+        <p class="description">
+          I’m a frontend developer focused on turning ideas into real functional
+          web experiences. I enjoy building clean, responsive interfaces and
+          continuously improving my skills with modern technologies.
+        </p>
+      </div>
+      <div class="technologies">
+        <div class="tech-track">
+          <span class="technologies_logos"><img src="./assets/htmlLogo.png" alt="HTML" /></span>
+          <span class="technologies_logos"><img src="./assets/cssLogo.png" alt="CSS" /></span>
+          <span class="technologies_logos"><img src="./assets/jsLogo.png" alt="JavaScript" /></span>
+          <span class="technologies_logos"><img src="./assets/reactLogo.png" alt="React" /></span>
+        </div>
+      </div>
+      <button class="toProjects">PROJECTS</button>
+    </header>
+    <main class="main1">
+      <section class="myWork_section" id="projects">
+        <h2 class="myWork_title">My Work</h2>
+
+        <div class="projects-wrapper" aria-label="Projects carousel">
+          <div class="projects-track">
+            <a
+              class="project-card"
+              href="https://krommolt.github.io/BatataBitPage/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./assets/BatataBit.png"
+                alt="BatataBit project preview"
+              />
+              <div class="project-card__info">
+                <h3>BatataBit</h3>
+                <p>
+                  Responsive landing page inspired by a modern crypto and
+                  finance product.
+                </p>
+                <div class="project-card__tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>Responsive</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://krommolt.github.io/Rick-Morty-Characters/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./assets/RickAndMortyApi.png"
+                alt="Rick and Morty API project preview"
+              />
+              <div class="project-card__info">
+                <h3>Rick and Morty API</h3>
+                <p>
+                  Character finder connected to the API with filters and dynamic
+                  rendering.
+                </p>
+                <div class="project-card__tech">
+                  <span>React</span>
+                  <span>API</span>
+                  <span>CSS</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://krommolt.github.io/TodoListReact/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="./assets/ToDoList.png"
+                alt="To-Do List project preview"
+              />
+              <div class="project-card__info">
+                <h3>To-Do List</h3>
+                <p>
+                  Task manager with a clean UI to create, complete and organize
+                  daily todos.
+                </p>
+                <div class="project-card__tech">
+                  <span>React</span>
+                  <span>JavaScript</span>
+                  <span>CSS</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <main class="main2">
+      <section class="aboutMe">
+        <h2 class="aboutMe_title">About Me</h2>
+        <p class="aboutMe_description">
+          I’m a frontend developer passionate about building clean and engaging
+          web experiences. Born in Argentina and now based in Spain, I focus on
+          creating responsive and user-friendly interfaces. I’m constantly
+          improving my skills and enjoy working on real-world projects that
+          challenge me to grow as a developer.
+        </p>
+      </section>
+    </main>
+    <section class="contactInfo">
+      <h2 class="contactInfo_title">Contact Info</h2>
+      <p class="contactInfo_description">
+        Feel free to reach out if you have any questions or opportunities!
+      </p>
+      <p class="contactInfo_email">
+        <a class="email" href="mailto:lucas_nahueltoledo@hotmail.com"
+          >lucas_nahueltoledo@hotmail.com</a
+        >
+      </p>
+      <div class="shadow"></div>
+    </section>
+    <footer class="footer">
+      <p class="derechos">&copy; 2025 My Portfolio. All rights reserved.</p>
+      <a
+        class="github"
+        href="https://github.com/krommolt"
+        target="_blank"
+        rel="noreferrer"
+        ><img class="github-logo" src="./assets/github-logo.svg" alt="GitHub"
+      /></a>
+    </footer>
+  </body>
+</html>
