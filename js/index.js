@@ -1,39 +1,82 @@
 const projectsWrapper = document.querySelector(".projects-wrapper");
 const projectsTrack = document.querySelector(".projects-track");
+const techWrapper = document.querySelector(".technologies");
+const techTrack = techWrapper ? (techWrapper.querySelector(".tech-track") || techWrapper.querySelector("ul")) : null;
 
-if (projectsWrapper && projectsTrack) {
-  const originalCards = Array.from(projectsTrack.children);
+function setupLoopingCarousel(wrapper, track, speed = 0.4, cloneMultiplier = 2, pauseOnHover = true) {
+  if (!wrapper || !track) return;
 
-  originalCards.forEach((card) => {
-    const clone = card.cloneNode(true);
-    clone.setAttribute("aria-hidden", "true");
-    projectsTrack.appendChild(clone);
-  });
+  const items = Array.from(track.children);
+  if (items.length === 0) return;
 
-  let isPaused = false;
-  const scrollSpeed = 0.6;
+  // Ensure the track is styled as a flexible horizontal strip.
+  track.style.display = track.style.display || "flex";
+  track.style.width = track.style.width || "max-content";
 
-  projectsWrapper.addEventListener("click", (event) => {
-    if (event.target.closest(".project-card")) {
-      return;
-    }
-
-    isPaused = !isPaused;
-  });
-
-  function autoScroll() {
-    if (!isPaused) {
-      projectsWrapper.scrollLeft += scrollSpeed;
-
-      const loopPoint = projectsTrack.scrollWidth / 2;
-
-      if (projectsWrapper.scrollLeft >= loopPoint) {
-        projectsWrapper.scrollLeft -= loopPoint;
-      }
-    }
-
-    requestAnimationFrame(autoScroll);
+  // Duplicate the items so the track can loop continuously.
+  const targetWidth = wrapper.clientWidth * cloneMultiplier;
+  let clonePasses = 0;
+  while (track.scrollWidth < targetWidth && clonePasses < 8) {
+    items.forEach((item) => {
+      const clone = item.cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+    });
+    clonePasses += 1;
   }
 
-  autoScroll();
+  if (track.scrollWidth <= wrapper.clientWidth && clonePasses < 12) {
+    while (track.scrollWidth <= wrapper.clientWidth && clonePasses < 12) {
+      items.forEach((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        track.appendChild(clone);
+      });
+      clonePasses += 1;
+    }
+  }
+
+  console.debug("[carousel] setup", {
+    wrapperClass: wrapper.className,
+    trackClass: track.className,
+    wrapperClientWidth: wrapper.clientWidth,
+    trackScrollWidth: track.scrollWidth,
+    clonePasses,
+    pauseOnHover,
+  });
+
+  const loopPoint = track.scrollWidth / 2;
+  let paused = false;
+
+  if (pauseOnHover) {
+    wrapper.addEventListener("mouseenter", () => {
+      paused = true;
+    });
+    wrapper.addEventListener("mouseleave", () => {
+      paused = false;
+    });
+  }
+
+  function step() {
+    if (!paused) {
+      wrapper.scrollLeft += speed;
+      if (wrapper.scrollLeft >= loopPoint) {
+        wrapper.scrollLeft -= loopPoint;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
 }
+
+window.addEventListener("load", () => {
+  if (!projectsWrapper || !projectsTrack) {
+    console.warn("[carousel] projects carousel missing wrapper or track", { projectsWrapper, projectsTrack });
+  }
+  if (!techWrapper || !techTrack) {
+    console.warn("[carousel] technologies carousel missing wrapper or track", { techWrapper, techTrack });
+  }
+  setupLoopingCarousel(projectsWrapper, projectsTrack, 0.5, 2, true);
+  setupLoopingCarousel(techWrapper, techTrack, 0.3, 2, true);
+});

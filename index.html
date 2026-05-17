@@ -12,15 +12,23 @@
       rel="stylesheet"
     />
     <script src="./js/index.js" defer></script>
+    <script src="./js/idiomas.js" defer></script>
   </head>
   <body>
     <header class="header">
       <nav class="navbar">
         <ul class="navbar__list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li class="lenguage_icon"><a href="#esp">🏁</a></li>
+          <li><a id="homeLink" href="#home">Home</a></li>
+          <li><a id="projectsLink" href="#projects">Projects</a></li>
+          <li><a id="contactLink" href="#contactInfo">Contact</a></li>
+          <li>
+            <button class="lenguage_icon" onclick="ChangeLanguage('esp')">
+              <span>ES</span>
+            </button>
+            <button class="lenguage_icon" onclick="ChangeLanguage('en')">
+              <span>EN</span>
+            </button>
+          </li>
         </ul>
       </nav>
       <div class="main_img">
@@ -33,14 +41,14 @@
 
       <div class="personal-info">
         <h1 class="name">Lucas Toledo</h1>
-        <p class="description">
+        <p id="description" class="description">
           I’m a frontend developer focused on turning ideas into real functional
           web experiences. I enjoy building clean, responsive interfaces and
           continuously improving my skills with modern technologies.
         </p>
       </div>
       <div class="technologies">
-        <ul>
+        <ul class="tech-track">
           <li>
             <span class="technologies_logos"
               ><img src="./assets/htmlLogo.png" alt="HTML LOGO" /></span
@@ -87,7 +95,7 @@
     </header>
     <main class="main1">
       <section class="myWork_section" id="projects">
-        <h2 class="myWork_title">My Work</h2>
+        <h2 id="projectsTitle" class="myWork_title">My Work</h2>
 
         <div class="projects-wrapper" aria-label="Projects carousel">
           <div class="projects-track">
@@ -103,7 +111,7 @@
               />
               <div class="project-card__info">
                 <h3>BatataBit</h3>
-                <p>
+                <p class="project-card__description">
                   Responsive landing page inspired by a modern crypto and
                   finance product.
                 </p>
@@ -127,7 +135,7 @@
               />
               <div class="project-card__info">
                 <h3>Rick and Morty API</h3>
-                <p>
+                <p class="project-card__description">
                   Character finder connected to the API with filters and dynamic
                   rendering.
                 </p>
@@ -151,7 +159,7 @@
               />
               <div class="project-card__info">
                 <h3>To-Do List</h3>
-                <p>
+                <p class="project-card__description">
                   Task manager with a clean UI to create, complete and organize
                   daily todos.
                 </p>
@@ -168,7 +176,7 @@
     </main>
     <main class="main2">
       <section class="aboutMe">
-        <h2 class="aboutMe_title">About Me</h2>
+        <h2 id="aboutTitle" class="aboutMe_title">About Me</h2>
         <p class="aboutMe_description">
           I’m a frontend developer passionate about building clean and engaging
           web experiences. Born in Argentina and now based in Spain, I focus on
@@ -179,12 +187,12 @@
       </section>
     </main>
     <section class="contactInfo">
-      <h2 class="contactInfo_title">Contact Info</h2>
-      <p class="contactInfo_description">
+      <h2 id="contactTitle" class="contactInfo_title">Contact Info</h2>
+      <p id="contactInfo_description" class="contactInfo_description">
         Feel free to reach out if you have any questions or opportunities!
       </p>
       <p class="contactInfo_email">
-        <a class="email" href="mailto:lucas_nahueltoledo@hotmail.com"
+        <a id="contactEmail" class="email" href="mailto:lucas_nahueltoledo@hotmail.com"
           >lucas_nahueltoledo@hotmail.com</a
         >
       </p>
@@ -202,3 +210,5 @@
     </footer>
   </body>
 </html>
+
+

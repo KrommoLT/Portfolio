@@ -12,7 +12,7 @@ html {
   text-align: center;
   padding: 0;
   background-color: #080808;
-  height: 930px;
+  height: 1000px;
 }
 .navbar {
   height: 50px;
@@ -81,10 +81,23 @@ a {
   padding: 0 2rem;
 }
 .technologies {
-  position: relative;
-  margin-top: 6rem;
-  padding: 0 2rem;
   overflow: hidden;
+  overflow-x: auto;
+  position: relative;
+  scrollbar-width: none;
+}
+
+.technologies::-webkit-scrollbar {
+  display: none;
+}
+
+.tech-track {
+  display: flex;
+  gap: 1.6rem;
+  margin: 5rem 0 0 0;
+  width: max-content;
+  padding: 1rem 0;
+  transition: transform 0.3s ease;
 }
 
 .technologies::before,
@@ -106,50 +119,6 @@ a {
 .technologies::after {
   right: 0;
   background: linear-gradient(to left, #080808 0%, rgba(8, 8, 8, 0) 100%);
-}
-
-.technologies ul {
-  list-style: none;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1.6rem;
-  flex-wrap: nowrap;
-  width: max-content;
-  padding: 0 2rem 1rem;
-  animation: tech-scroll 12s linear infinite;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.technologies ul::-webkit-scrollbar {
-  display: none;
-}
-
-.technologies:hover ul {
-  animation-play-state: paused;
-}
-
-@keyframes tech-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-50% - 0.8rem));
-  }
-}
-
-.technologies li {
-  display: flex;
-  flex: 0 0 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  font-size: 1.8rem;
-  color: #9c9c9c;
-  text-align: center;
-  min-width: 90px;
 }
 
 .technologies_logos img {
@@ -222,8 +191,8 @@ a {
   flex: 0 0 auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 1s ease,
+    box-shadow 1s ease;
 }
 
 .project-card:hover {
@@ -295,6 +264,7 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.6rem;
+  text-align: center;
 }
 .aboutMe_title {
   font-size: 3.5rem;
@@ -310,10 +280,11 @@ a {
   font-weight: 200;
   max-width: 500px;
   padding: 0 2rem;
+  margin: 0 auto;
 }
 /*--------CONTACT INFO & FOOTER--------*/
 .contactInfo {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 1.6rem;
   text-align: center;
@@ -344,9 +315,10 @@ a {
   top: -14px;
   z-index: 99;
   background-color: #1a1a1a;
-  width: 380px;
+  width: min(380px, 90%);
+  max-width: 380px;
   height: 30px;
-  margin: 0 10px;
+  margin: 0 auto;
 }
 
 /*--------FOOTER--------*/
@@ -364,4 +336,19 @@ a {
   height: 50px;
   margin: 10px;
   background-color: transparent;
+}
+@media (min-width: 768px) {
+  .technologies {
+    width: 60%;
+    margin: 0 auto;
+    padding: 0 5rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 426px) {
+  .technologies {
+    padding: 0 3rem;
+  }
 }
