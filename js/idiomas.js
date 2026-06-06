@@ -20,7 +20,7 @@ const textos = {
     "contact": "Contacto"
   }
 }
-
+/* Función para cambiar el idioma del sitio web */
 function ChangeLanguage(idioma) {
     const homeEl = document.getElementById("homeLink");
     const aboutEl = document.getElementById("aboutTitle");

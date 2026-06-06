@@ -3,20 +3,29 @@ const projectsTrack = document.querySelector(".projects-track");
 const techWrapper = document.querySelector(".technologies");
 const techTrack = techWrapper ? (techWrapper.querySelector(".tech-track") || techWrapper.querySelector("ul")) : null;
 
-function setupLoopingCarousel(wrapper, track, speed = 0.4, cloneMultiplier = 2, pauseOnHover = true) {
+/*
+ * Sets up a looping carousel effect for a given wrapper and track.
+ * @param {HTMLElement} wrapper - The container element for the carousel.
+ * @param {HTMLElement} track - The track element containing the carousel items.
+ * @param {number} speed - The speed of the carousel animation.
+ * @param {number} cloneMultiplier - The multiplier for cloning items.
+ * @param {boolean} pauseOnHover - Whether to pause the carousel on hover.
+ */
+function setupLoopingCarousel(wrapper, track, speed = 0.6, cloneMultiplier = 2, pauseOnHover = true) {
   if (!wrapper || !track) return;
 
   const items = Array.from(track.children);
   if (items.length === 0) return;
 
-  // Ensure the track is styled as a flexible horizontal strip.
+  wrapper.style.overflowX = wrapper.style.overflowX || "auto";
+  wrapper.style.scrollBehavior = wrapper.style.scrollBehavior || "auto";
   track.style.display = track.style.display || "flex";
   track.style.width = track.style.width || "max-content";
 
-  // Duplicate the items so the track can loop continuously.
-  const targetWidth = wrapper.clientWidth * cloneMultiplier;
+  const originalScrollWidth = track.scrollWidth;
+  const targetWidth = Math.max(wrapper.clientWidth + originalScrollWidth, originalScrollWidth * 2);
   let clonePasses = 0;
-  while (track.scrollWidth < targetWidth && clonePasses < 8) {
+  while (track.scrollWidth < targetWidth && clonePasses < 12) {
     items.forEach((item) => {
       const clone = item.cloneNode(true);
       clone.setAttribute("aria-hidden", "true");
@@ -25,27 +34,17 @@ function setupLoopingCarousel(wrapper, track, speed = 0.4, cloneMultiplier = 2, 
     clonePasses += 1;
   }
 
-  if (track.scrollWidth <= wrapper.clientWidth && clonePasses < 12) {
-    while (track.scrollWidth <= wrapper.clientWidth && clonePasses < 12) {
-      items.forEach((item) => {
-        const clone = item.cloneNode(true);
-        clone.setAttribute("aria-hidden", "true");
-        track.appendChild(clone);
-      });
-      clonePasses += 1;
-    }
+  if (track.scrollWidth <= wrapper.clientWidth) {
+    console.warn("[carousel] track width is not greater than wrapper width", {
+      wrapperClientWidth: wrapper.clientWidth,
+      trackScrollWidth: track.scrollWidth,
+      clonePasses,
+    });
+    return;
   }
 
-  console.debug("[carousel] setup", {
-    wrapperClass: wrapper.className,
-    trackClass: track.className,
-    wrapperClientWidth: wrapper.clientWidth,
-    trackScrollWidth: track.scrollWidth,
-    clonePasses,
-    pauseOnHover,
-  });
-
-  const loopPoint = track.scrollWidth / 2;
+  wrapper.scrollLeft = 0;
+  const loopPoint = originalScrollWidth;
   let paused = false;
 
   if (pauseOnHover) {
@@ -78,5 +77,5 @@ window.addEventListener("load", () => {
     console.warn("[carousel] technologies carousel missing wrapper or track", { techWrapper, techTrack });
   }
   setupLoopingCarousel(projectsWrapper, projectsTrack, 0.5, 2, true);
-  setupLoopingCarousel(techWrapper, techTrack, 0.3, 2, true);
+  setupLoopingCarousel(techWrapper, techTrack, 1.2, 2, true);
 });

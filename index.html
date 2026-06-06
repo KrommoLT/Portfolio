@@ -18,9 +18,12 @@
     <header class="header">
       <nav class="navbar">
         <ul class="navbar__list">
+          <div class="button_menu">
           <li><a id="homeLink" href="#home">Home</a></li>
           <li><a id="projectsLink" href="#projects">Projects</a></li>
           <li><a id="contactLink" href="#contactInfo">Contact</a></li>
+          </div>
+          <div class="lenguage_menu">
           <li>
             <button class="lenguage_icon" onclick="ChangeLanguage('esp')">
               <span>ES</span>
@@ -29,6 +32,7 @@
               <span>EN</span>
             </button>
           </li>
+          </div>
         </ul>
       </nav>
       <div class="main_img">
@@ -51,47 +55,27 @@
         <ul class="tech-track">
           <li>
             <span class="technologies_logos"
-              ><img src="./assets/htmlLogo.png" alt="HTML LOGO" /></span
-            >HTML
+              ><img src="./assets/htmlLogo.png" alt="HTML LOGO" />HTML</span
+            >
           </li>
           <li>
             <span class="technologies_logos"
-              ><img src="./assets/cssLogo.png" alt="CSS LOGO" /></span
-            >CSS
+              ><img src="./assets/cssLogo.png" alt="CSS LOGO" />CSS</span
+            >
           </li>
           <li>
             <span class="technologies_logos"
-              ><img src="./assets/jsLogo.png" alt="JavaScript LOGO" /></span
-            >JavaScript
+              ><img src="./assets/jsLogo.png" alt="JavaScript LOGO" />JavaScript</span
+            >
           </li>
           <li>
             <span class="technologies_logos"
-              ><img src="./assets/reactLogo.png" alt="React LOGO" /></span
-            >React
-          </li>
-          <li aria-hidden="true">
-            <span class="technologies_logos"
-              ><img src="./assets/htmlLogo.png" alt="" /></span
-            >HTML
-          </li>
-          <li aria-hidden="true">
-            <span class="technologies_logos"
-              ><img src="./assets/cssLogo.png" alt="" /></span
-            >CSS
-          </li>
-          <li aria-hidden="true">
-            <span class="technologies_logos"
-              ><img src="./assets/jsLogo.png" alt="" /></span
-            >JavaScript
-          </li>
-          <li aria-hidden="true">
-            <span class="technologies_logos"
-              ><img src="./assets/reactLogo.png" alt="" /></span
-            >React
+              ><img src="./assets/reactLogo.png" alt="React LOGO" />React</span
+            >
           </li>
         </ul>
       </div>
-      <button class="toProjects">PROJECTS</button>
+      <a href="#projects" class="toProjects">PROJECTS</a>
     </header>
     <main class="main1">
       <section class="myWork_section" id="projects">
@@ -186,7 +170,7 @@
         </p>
       </section>
     </main>
-    <section class="contactInfo">
+    <section id="contactInfo" class="contactInfo">
       <h2 id="contactTitle" class="contactInfo_title">Contact Info</h2>
       <p id="contactInfo_description" class="contactInfo_description">
         Feel free to reach out if you have any questions or opportunities!
